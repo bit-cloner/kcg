@@ -87,6 +87,9 @@ func main() {
 		api := clientset.CoreV1()
 		nsinterface := api.Namespaces()
 		nslist, err := nsinterface.List(metav1.ListOptions{})
+		if err != nil {
+			panic(err)
+		}
 		for _, nsitem := range nslist.Items {
 			//fmt.Println(nsitem.ObjectMeta.Name)
 			nsusrlist = append(nsusrlist, nsitem.ObjectMeta.Name)
@@ -105,6 +108,9 @@ func main() {
 		var sausrlist []string
 		sainterface := api.ServiceAccounts(namespace)
 		salist, err := sainterface.List(metav1.ListOptions{})
+		if err != nil {
+			panic(err)
+		}
 		for _, saitem := range salist.Items {
 			sausrlist = append(sausrlist, saitem.ObjectMeta.Name)
 		}
@@ -115,6 +121,9 @@ func main() {
 		}
 		survey.AskOne(prompt, &saname, nil)
 		sa, err := api.ServiceAccounts(namespace).Get(saname, metav1.GetOptions{})
+		if err != nil {
+			panic(err)
+		}
 		secret := string(sa.Secrets[0].Name)
 		if err != nil {
 			fmt.Println(err)
@@ -125,6 +134,9 @@ func main() {
 		// Get ca data from secret
 		fmt.Println("Getting certificate authority data")
 		ca, err := api.Secrets(namespace).Get(secret, metav1.GetOptions{})
+		if err != nil {
+			panic(err)
+		}
 		scrt := string(ca.Data["ca.crt"])
 		sEnc := b64.StdEncoding.EncodeToString([]byte(scrt))
 		if err != nil {
