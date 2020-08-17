@@ -36,3 +36,11 @@ chmod +x darwin-amd64-kcg
 ./darwin-amd64-kcg
 
 ```
+Install it as a kubectl plugin
+
+```
+wget https://github.com/bit-cloner/kcg/releases/download/0.9/kubectl-kcg
+sudo cp kubectl-kcg /usr/local/bin
+kubectl plugin list
+kubectl kcg
+```
