@@ -3,7 +3,7 @@
 ### Prerequisites 
 
 Default behaviour of this tool is to look in .kube directory for config file and it should have permissions to read namespaces, secrets, and serviceaccounts at cluster level.
-It can also get credentials of the K8 cluster you want to work with from Environment variable KUBECONFIG just like kubectl would.
+It can also look for credentials of the K8 cluster you want to work with from Environment variable KUBECONFIG just like kubectl would.
 
 For Linux
 
