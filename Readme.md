@@ -1,4 +1,8 @@
-## How to use this tool
+## What is KCG?
+Kubernetes config generator is an interactive command line tool that lets you create kubeconfig files
+related to a service account in a given namespace. The user can interactively chose a namespace and service account from a K8 cluster.
+The output is a config file with token authentication that has same RBAC permissions assigned to chosen
+service account.
 
 ### Prerequisites 
 
