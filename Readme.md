@@ -4,10 +4,15 @@ related to a service account in a given namespace. The user can interactively ch
 The output is a config file with token authentication that has same RBAC permissions assigned to chosen
 service account.
 
+### Demo
+![til](./usage.gif)
+
 ### Prerequisites 
 
 Default behaviour of this tool is to look in .kube directory for config file and it should have permissions to read namespaces, secrets, and serviceaccounts at cluster level.
 It can also look for credentials of the K8 cluster you want to work with from Environment variable KUBECONFIG just like kubectl would.
+
+### Get it
 
 For Linux
 
@@ -48,3 +53,4 @@ sudo cp kubectl-kcg /usr/local/bin
 kubectl plugin list
 kubectl kcg
 ```
+
